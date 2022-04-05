@@ -44,7 +44,7 @@ def url_redirect(id):
     conn = get_db_connection()
 
     original_id = str(id)
-    if original_id:
+    if original_id and original_id != "favicon.ico":
         #original_id = original_id[0]
         url_data = conn.execute('SELECT original_url, clicks FROM urls'
                                 ' WHERE shortened_url = (?)', (original_id,)
